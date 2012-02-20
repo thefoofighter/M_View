@@ -1,0 +1,37 @@
+CONTENTS OF THIS FILE
+---------------------
+* Name
+* Version
+* Author
+* Introduction
+* Licence
+
+ ------
+| NAME |
+ ------
+    M_View (Movie Viewer)
+ -------
+|VERSION|
+ -------
+    1.0a
+ ------
+|AUTHOR|
+ ------
+    Cathal McNally (mcnallycathal@yahoo.ie)
+ ------------
+|INTRODUCTION|
+ ------------
+   M_View
+
+   A Basic Program that parses information about movies from IMDB.com
+   It will parse movie info based on the name of the folder that the movie resides 
+   in by searching for that string through Google @ imdb
+   Using IMDb.cs by Abhinay Rathore (http://www.AbhinayRathore.com) which does the
+   majority of the work parsing the info from IMDB.com
+
+ -------
+|LICENCE|
+ -------
+   Released under the The MIT License.
+
+   http://www.opensource.org/licenses/mit-license.php

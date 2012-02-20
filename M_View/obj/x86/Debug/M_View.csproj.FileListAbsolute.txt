@@ -1,0 +1,10 @@
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\bin\Debug\M_View.exe
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\bin\Debug\M_View.pdb
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\M_View.Properties.Resources.resources
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\M_View.exe
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\M_View.pdb
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\M_View.Form1.resources
+c:\users\cathal\documents\visual studio 2010\Projects\M_View\M_View\obj\x86\Debug\M_View.Form2.resources

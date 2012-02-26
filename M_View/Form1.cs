@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace M_View
         private static string statWorking = "Status: Downloading ";
         private static string statLoaded = "Status: Loaded ";
         private static string statError = "Error: Try Reloading and Check that the folder name is an actual Movie name!";
+        private string imdbUrl;
 
         public Form1()
         {
@@ -81,7 +83,26 @@ namespace M_View
                         status.Text = statWorking + "| " + movieName + " |";
                     }
                     IMDb imdb = new IMDb(movieName, true);
+                    ArrayList list = new ArrayList();
+                    
+
                     titleTb.Text = imdb.Title;
+                    yearTb.Text = " "+imdb.Year;
+                    runningTimeTb.Text = " " + imdb.Runtime;
+                    ratingTb.Text = " " + imdb.Rating;
+                    MpaaTb.Text = " "+imdb.MpaaRating;
+                    imdbUrl = imdb.ImdbURL;
+
+                    list = imdb.Genres;
+                    loadIMDBInfo(imdb, list,genreTb);
+                    list = imdb.Directors;
+                    loadIMDBInfo(imdb, list, directorTb);
+                    list = imdb.Writers;
+                    loadIMDBInfo(imdb, list, writersTb);
+                    list = imdb.Cast;
+                    loadIMDBInfo(imdb, list, castTb);
+
+                    plotTb.Text = imdb.Plot;
                     try
                     {
                         filmImgSrc.Load(imdb.Poster);
@@ -130,7 +151,25 @@ namespace M_View
                         status.Text = statWorking + "| " + movieName + " |";
                     }
                     IMDb imdb = new IMDb(movieName, true);
+                    ArrayList list = new ArrayList();
+
                     titleTb.Text = imdb.Title;
+                    yearTb.Text = " " + imdb.Year;
+                    runningTimeTb.Text = " " + imdb.Runtime;
+                    ratingTb.Text = " " + imdb.Rating;
+                    MpaaTb.Text = " " + imdb.MpaaRating;
+                    imdbUrl = imdb.ImdbURL;
+
+                    list = imdb.Genres;
+                    loadIMDBInfo(imdb, list, genreTb);
+                    list = imdb.Directors;
+                    loadIMDBInfo(imdb, list, directorTb);
+                    list = imdb.Writers;
+                    loadIMDBInfo(imdb, list, writersTb);
+                    list = imdb.Cast;
+                    loadIMDBInfo(imdb, list, castTb);
+
+                    plotTb.Text = imdb.Plot;
                     try
                     {
                         filmImgSrc.Load(imdb.Poster);
@@ -163,8 +202,25 @@ namespace M_View
                 status.Text = statWorking + "| " + movieName + " |";
             }
             IMDb imdb = new IMDb(movieName, true);
-            titleTb.Text = imdb.Title;
+            ArrayList list = new ArrayList();
 
+            titleTb.Text = imdb.Title;
+            yearTb.Text = " " + imdb.Year;
+            runningTimeTb.Text = " " + imdb.Runtime;
+            ratingTb.Text = " " + imdb.Rating;
+            MpaaTb.Text = " " + imdb.MpaaRating;
+            imdbUrl = imdb.ImdbURL;
+
+            list = imdb.Genres;
+            loadIMDBInfo(imdb, list, genreTb);
+            list = imdb.Directors;
+            loadIMDBInfo(imdb, list, directorTb);
+            list = imdb.Writers;
+            loadIMDBInfo(imdb, list, writersTb);
+            list = imdb.Cast;
+            loadIMDBInfo(imdb, list, castTb);
+
+            plotTb.Text = imdb.Plot;
             try
             {
                 filmImgSrc.Load(imdb.Poster);
@@ -189,6 +245,46 @@ namespace M_View
         {
             Form2 subForm = new Form2(this);
             subForm.Show();
+        }
+
+        private void urlClickLbl_Click(object sender, EventArgs e)
+        {
+            OpenLink(imdbUrl);
+            Console.WriteLine(imdbUrl);
+        }
+
+        public void OpenLink(string sUrl)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(sUrl);
+            }
+            catch (Exception exc1)
+            {
+                if (exc1.GetType().ToString() != "System.ComponentModel.Win32Exception")
+                {
+                    try
+                    {
+                        System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo("IExplore.exe", sUrl);
+                        System.Diagnostics.Process.Start(startInfo);
+                        startInfo = null;
+                    }
+                    catch (Exception exc2)
+                    {
+                        MessageBox.Show("Couldn't load the IMDB Url!\nTry Again."+ MessageBoxButtons.OK);
+                        error = true;
+                    }
+                }
+            }
+        }
+
+        private void loadIMDBInfo(IMDb imdb, ArrayList list, TextBox txtBox)
+        {
+            txtBox.Clear();
+            for (int i = 0; i < list.Count; i++)
+            {
+                txtBox.Text += list[i].ToString() + ", ";
+            }
         }
     }
 }

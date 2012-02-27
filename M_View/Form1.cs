@@ -66,7 +66,7 @@ namespace M_View
             Environment.Exit(0);
         }
         #endregion
-
+        #region next method
         private void nextSelection()
         {
             error = false;
@@ -94,13 +94,13 @@ namespace M_View
                     imdbUrl = imdb.ImdbURL;
 
                     list = imdb.Genres;
-                    loadIMDBInfo(imdb, list,genreTb);
+                    loadIMDBArrayListInfo(imdb, list,genreTb);
                     list = imdb.Directors;
-                    loadIMDBInfo(imdb, list, directorTb);
+                    loadIMDBArrayListInfo(imdb, list, directorTb);
                     list = imdb.Writers;
-                    loadIMDBInfo(imdb, list, writersTb);
+                    loadIMDBArrayListInfo(imdb, list, writersTb);
                     list = imdb.Cast;
-                    loadIMDBInfo(imdb, list, castTb);
+                    loadIMDBArrayListInfo(imdb, list, castTb);
 
                     plotTb.Text = imdb.Plot;
                     try
@@ -128,7 +128,8 @@ namespace M_View
                 status.Text = statError;
             }
         }
-
+#endregion
+        #region previous method
         private void previousSelection()
         {
             error = false;
@@ -161,13 +162,13 @@ namespace M_View
                     imdbUrl = imdb.ImdbURL;
 
                     list = imdb.Genres;
-                    loadIMDBInfo(imdb, list, genreTb);
+                    loadIMDBArrayListInfo(imdb, list, genreTb);
                     list = imdb.Directors;
-                    loadIMDBInfo(imdb, list, directorTb);
+                    loadIMDBArrayListInfo(imdb, list, directorTb);
                     list = imdb.Writers;
-                    loadIMDBInfo(imdb, list, writersTb);
+                    loadIMDBArrayListInfo(imdb, list, writersTb);
                     list = imdb.Cast;
-                    loadIMDBInfo(imdb, list, castTb);
+                    loadIMDBArrayListInfo(imdb, list, castTb);
 
                     plotTb.Text = imdb.Plot;
                     try
@@ -191,7 +192,8 @@ namespace M_View
                 status.Text = statError;
             }
         }
-
+#endregion
+        #region Reload Method
         private void reloadSelection()
         {
             error = false;
@@ -212,13 +214,13 @@ namespace M_View
             imdbUrl = imdb.ImdbURL;
 
             list = imdb.Genres;
-            loadIMDBInfo(imdb, list, genreTb);
+            loadIMDBArrayListInfo(imdb, list, genreTb);
             list = imdb.Directors;
-            loadIMDBInfo(imdb, list, directorTb);
+            loadIMDBArrayListInfo(imdb, list, directorTb);
             list = imdb.Writers;
-            loadIMDBInfo(imdb, list, writersTb);
+            loadIMDBArrayListInfo(imdb, list, writersTb);
             list = imdb.Cast;
-            loadIMDBInfo(imdb, list, castTb);
+            loadIMDBArrayListInfo(imdb, list, castTb);
 
             plotTb.Text = imdb.Plot;
             try
@@ -240,7 +242,7 @@ namespace M_View
                 status.Text = statError;
             }
         }
-
+        #endregion
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 subForm = new Form2(this);
@@ -278,7 +280,7 @@ namespace M_View
             }
         }
 
-        private void loadIMDBInfo(IMDb imdb, ArrayList list, TextBox txtBox)
+        private void loadIMDBArrayListInfo(IMDb imdb, ArrayList list, TextBox txtBox)
         {
             txtBox.Clear();
             for (int i = 0; i < list.Count; i++)
